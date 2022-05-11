@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputComponent=({name,onChangeCarName,value,label,type="text",placeholder})=>{
+const InputComponent=({name,onChangeCarName,value,label,type="text",placeholder,id="formGroupExampleInput"})=>{
     
     return(
         <div class="form-group">
@@ -11,7 +11,7 @@ const InputComponent=({name,onChangeCarName,value,label,type="text",placeholder}
             value={value}
             name={name}
             onChange={onChangeCarName} 
-            id="formGroupExampleInput" 
+            id={id} 
             placeholder={placeholder}/>
         </div>
     )

@@ -58,8 +58,6 @@ function Login(){
                                     name="name"
                                     onChangeCarName={(e)=>setEmail(e.target.value)}
                                 />
-
-
                                 <InputComponent
                                     type="password"
                                     value={password}
