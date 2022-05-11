@@ -11,7 +11,6 @@ const InputComponent=({name,onChangeCarName,value,label,type="text",placeholder,
             value={value}
             name={name}
             onChange={onChangeCarName} 
-            id={id} 
             placeholder={placeholder}/>
         </div>
     )

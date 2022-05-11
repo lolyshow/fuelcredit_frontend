@@ -11,9 +11,12 @@ function App() {
   return (
     
     <Router>
-        {!isLoggedIn?
-          <AuthRoute/>
-        :<AuthRoute/>}
+        {/* {!isLoggedIn?
+          <AuthRoute/> */}
+        {/* : */}
+
+        <AuthRoute/>
+        {/* } */}
     </Router>
       
     

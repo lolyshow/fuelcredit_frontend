@@ -7,12 +7,13 @@ import Helper from "../../helpers/Helper";
 import {toast} from 'react-toastify';
 import NavBarComponent from "../../components/includes/NavBarComponent";
 
-function Login(){
+function Register(){
     const navigate = useNavigate();
     const notify = () => {
         toast("Default Notification !");
     }
     const [email, setEmail] = useState("")
+    const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [processing, setProcessing] = useState(false)
     const [errorMessage, setErrorMessage] = React.useState("");
@@ -23,6 +24,7 @@ function Login(){
         if(email && password){
             let payload = {
                 email,
+                name,
                 password
             }
             try {
@@ -35,14 +37,13 @@ function Login(){
                   notify();
                   setProcessing(false);
                   if (!error) {
-                        setProcessing(false);
-                        if(response?.status == 200){
-                            navigate('/home',{state:{email}});
-                            
-                        }else{
-                            setErrorMessage(response.message)
-                        }
-                        
+                    setProcessing(false);
+                    if(response?.status == 200){
+                        navigate('/home',{state:{email}});
+                    }else{
+                        setErrorMessage(response.message)
+                    }
+                    
                   } else {
                       console.log("error")
                     setProcessing(false);
@@ -70,11 +71,20 @@ function Login(){
             <div className = "row">
                 <div className = "col-md-6 createCarcontainer">
                     <div class="card border-0">
-                        <h5 class="card-header bg-primary mt-5 text-white">User Login</h5>
+                        <h5 class="card-header bg-primary mt-5 text-white">User Signup</h5>
                         <div class="card-body shadow p-3 mb-5 bg-white rounded">
                             <div >
                             {processing ? <LoadingSpinner />:null}
                             {errorMessage && <div className="error"> {errorMessage} </div>}
+                                <InputComponent
+                                    type="text"
+                                    value={name}
+                                    placeholder="Phillip Handwritting"
+                                    label="Enter Name"
+                                    name="name"
+                                    onChangeCarName={(e)=>setName(e.target.value)}
+                                />
+
                                 <InputComponent
                                     type="email"
                                     value={email}
@@ -104,4 +114,4 @@ function Login(){
     )
 }
 
-export default Login;
+export default Register;

@@ -4,4 +4,11 @@
     margin-top: 100px;
     margin:auto;
     
-  }
+}
+
+.error{
+    color: brown;
+}
+.card-home{
+    width: 18rem
+}
