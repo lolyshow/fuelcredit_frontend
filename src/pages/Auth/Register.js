@@ -29,7 +29,7 @@ function Register(){
             }
             try {
                 setProcessing(true);
-                let path = "api/login";
+                let path = "api/register";
                 await Helper.Request(path,"post",payload)
                 .then((result) =>{ 
                   let { message, error, response } = result;
