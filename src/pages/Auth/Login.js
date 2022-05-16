@@ -9,9 +9,9 @@ import NavBarComponent from "../../components/includes/NavBarComponent";
 
 function Login(){
     const navigate = useNavigate();
-    const notify = () => {
-        toast("Default Notification !");
-    }
+    
+        
+    
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [processing, setProcessing] = useState(false)
@@ -32,7 +32,7 @@ function Login(){
                 .then((result) =>{ 
                   let { message, error, response } = result;
                 //   console.log("myResultIs",response)
-                  notify();
+                  
                   setProcessing(false);
                   if (!error) {
                         setProcessing(false);
@@ -40,12 +40,13 @@ function Login(){
                             navigate('/home',{state:{email}});
                             
                         }else{
-                            setErrorMessage(response.message)
+                            
+                            toast.error(response.message);
                         }
                         
                   } else {
                       console.log("error")
-                      setErrorMessage("Technical error! please try again later")
+                      toast.error("Technical error! please try again later");
                     setProcessing(false);
                   }
           
@@ -53,12 +54,12 @@ function Login(){
                 
             }catch (error) {
                 // console.log("Catcherror",error)
-                setErrorMessage("Technical error! please try again later")
+                toast.error("Technical error! please try again later");
+                
                 setProcessing(false);
             }
         }else{
-            setErrorMessage("Technical error! please try again later")
-            console.log("falseFalse")
+            toast.error("Technical error! please try again later");
         }
         
         
