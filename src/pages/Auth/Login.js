@@ -45,16 +45,19 @@ function Login(){
                         
                   } else {
                       console.log("error")
+                      setErrorMessage("Technical error! please try again later")
                     setProcessing(false);
                   }
           
                 });
                 
             }catch (error) {
-                console.log("Catcherror",error)
+                // console.log("Catcherror",error)
+                setErrorMessage("Technical error! please try again later")
                 setProcessing(false);
             }
         }else{
+            setErrorMessage("Technical error! please try again later")
             console.log("falseFalse")
         }
         
